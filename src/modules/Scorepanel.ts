@@ -13,7 +13,7 @@ class Scorepanel{
 
     upScore:number;
 
-    constructor(maxLevel:number=10,upScore:number=10){
+    constructor(maxLevel:number=10,upScore:number=2){
         this.scoreEle=document.getElementById("score")!;
         this.levelEle=document.getElementById("level")!;
         this.maxLevel = maxLevel;
@@ -22,7 +22,7 @@ class Scorepanel{
     
     addScore(){
         this.scoreEle.innerHTML = ++this.score + "";
-        if(this.score %10 ===0 ){
+        if(this.score %2 ===0 ){
             this.levelUp();
         }
     }

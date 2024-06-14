@@ -21,6 +21,7 @@ class Snake{
         return this.head.offsetTop;
     }
 
+
     // 蛇の頭を設定する、valueは蛇頭の現在位置です。
     set X(value:number){
         
@@ -102,12 +103,11 @@ class Snake{
             let X = (this.body[i-1] as HTMLElement).offsetLeft;
             let Y = (this.body[i-1] as HTMLElement).offsetTop;
 
-            console.log(X,Y);
 
             (this.body[i] as HTMLElement).style.left = X +"px" ;
             (this.body[i] as HTMLElement).style.top = Y +"px" ;
 
-            console.log(this.body[i])
+           
         }
 
     }

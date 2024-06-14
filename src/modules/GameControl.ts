@@ -2,7 +2,8 @@ import Food from "./Food";
 import Scorepanel from "./Scorepanel";
 import Snake from "./Snake";
 
-class GameControl{
+
+class GameControl{  
     snake:Snake;
     food:Food;
     scorepanel:Scorepanel;
@@ -18,8 +19,9 @@ class GameControl{
         this.food= new Food();
         this.scorepanel= new Scorepanel(); 
         this.init();
+       
     }
-
+    
         // ゲーム初期化、bindは新しい変数を生成することです(this)はこのthisに指定されることです
     init(){
          document.addEventListener("keydown",this.keydownHandler.bind(this));
@@ -40,7 +42,6 @@ class GameControl{
 
         let X = this.snake.X;
         let Y = this.snake.Y;
-
 
 
         switch(this.direction){
@@ -76,6 +77,7 @@ class GameControl{
         }catch(e:any){
             alert(e.message);
             this.isLive=false;
+            location.reload();
         }
        
         
@@ -87,9 +89,12 @@ class GameControl{
         this.isLive && setTimeout(this.run.bind(this),200-(this.scorepanel.level-1)*30);
     }
 
+
     // 蛇の頭（座標）とfoodとぶつけるを検索します,XとYは直接上の座標を取ります。
     checkEat(X:number,Y:number){
-        return X === this.food.X && Y === this.food.Y ;
+        return X === this.food.X && Y === this.food.Y || X === this.food.X2
+         && Y === this.food.Y2 ;
+        
     }
 
 }
